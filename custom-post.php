@@ -69,7 +69,19 @@ function create_my_taxonomies() {
     );
 }
 
-
+// Register custom meta boxes 
+// Add the Meta Box
+function add_custom_meta_box() {
+    add_meta_box(
+		'custom_meta_box', // $id
+		'Custom Meta Box', // $title 
+		'show_custom_meta_box', // $callback
+		'post', // $page
+		'normal', // $context
+		'high'); // $priority
+}
+add_action('add_meta_boxes', 'add_custom_meta_box');
+  
 // FIELD FOR CUSTOM META BOXES
 $prefix = 'custom_';
 $custom_meta_fields = array(
